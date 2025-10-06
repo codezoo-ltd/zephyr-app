@@ -31,7 +31,7 @@ void setup_modem_power(void)
     if (ret < 0) {
         printk("Failed to turn on LDO\n");
     }	
-	k_sleep(K_MSEC(100));
+	k_sleep(K_MSEC(300));
 }
 
 void shutdown_modem_power(void)
@@ -43,7 +43,7 @@ void shutdown_modem_power(void)
     printk("Turning off Modem LDO...\n");
 
     led_off(ldo_en, 0); 	
-	k_sleep(K_MSEC(2000));
+	k_sleep(K_MSEC(3000));
 }
 
 
