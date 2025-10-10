@@ -1,0 +1,40 @@
+/ {
+    aliases {
+        modem-uart = &usart1;
+		modem = &modem;
+		ldoen = &mdm_ldo;
+    };
+
+	chosen {
+        zephyr,ppp-uart = &usart1;
+    };
+
+    mdm_ldo: mdm_ldo {
+        compatible = "gpio-leds";
+        label = "Modem LDO Enable";
+        led_0: led_0 {
+            gpios = <&gpioa 8 GPIO_ACTIVE_HIGH>;
+        };
+    };	
+};
+
+&usart1 {
+    pinctrl-0 = <&usart1_tx_pa9 &usart1_rx_pa10>;
+    pinctrl-names = "default";
+    current-speed = <115200>;
+    status = "okay";
+
+    modem: modem {
+        status = "okay";
+        compatible = "telit,me310g1";
+        mdm-power-gpios = <&gpiob 5 GPIO_ACTIVE_HIGH>;
+    };
+};
+
+&gpioa {
+    status = "okay";
+};
+
+&gpiob {
+    status = "okay";
+};
