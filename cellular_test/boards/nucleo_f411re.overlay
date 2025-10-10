@@ -27,7 +27,7 @@
     modem: modem {
         status = "okay";
         compatible = "telit,me310g1";
-        mdm-power-gpios = <&gpiob 5 GPIO_ACTIVE_HIGH>;
+        mdm-power-gpios = <&gpiob 3 GPIO_ACTIVE_HIGH>;
     };
 };
 
